@@ -126,7 +126,7 @@ let userAttempt = 0;
 
 //use for loop to iterate over array each time the user provides a response
 while (userAnswer == false && userAttempt < 6) {
-    console.log(userAnswer == false && userAttempt < 6);
+    //console.log(userAnswer == false && userAttempt < 6);
     //prompt user provide a response.
     let guessFish = prompt(
         "Guess what species of fish I enjoy catching the most?"
