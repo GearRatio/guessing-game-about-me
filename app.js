@@ -10,7 +10,6 @@ let myFish = [
     "bass",
 ];
 
-
 //get user input up-front
 let userName = prompt("Please enter your name.");
 //alert to take a quiz about me
@@ -34,7 +33,7 @@ let totalCorrect = 0;
 function askQuestion(questionMsg, confirmation, greatMsg, poorMsg) {
     let firstQuest = prompt(questionMsg);
 
-    if(confirmation === true) {
+    if (confirmation === true) {
         if (firstQuest.toLowerCase() == "yes" || firstQuest.toLowerCase() == "y") {
             totalCorrect++;
             alert(greatMsg);
@@ -59,7 +58,9 @@ function askQuestion(questionMsg, confirmation, greatMsg, poorMsg) {
 
 function askDigit(randomRange) {
     //Number guessing game
-    let numberGuess = parseInt(prompt("Please guess a number between 1 and " + randomRange + " ?"));
+    let numberGuess = parseInt(
+        prompt("Please guess a number between 1 and " + randomRange + " ?")
+    );
     //generate and store a random number for loop.
     let someNumber = Math.floor(Math.random() * randomRange);
     //console.log(someNumber);
@@ -88,7 +89,7 @@ function askDigit(randomRange) {
 function askMultipleSolution(dataArray, questionMsg, poorMsg) {
     let userAnswer = false;
     let userAttempt = 0;
-    
+
     //use for loop to iterate over array each time the user provides a response
     while (userAnswer == false && userAttempt < 6) {
         //console.log(userAnswer == false && userAttempt < 6);
@@ -104,21 +105,43 @@ function askMultipleSolution(dataArray, questionMsg, poorMsg) {
         }
         userAttempt++;
     }
-    
+
     if (userAnswer == false) {
-        alert(
-            poorMsg + dataArray + " ."
-        );
+        alert(poorMsg + dataArray + " .");
     }
 }
 
-askQuestion("Did I live in Ohio? Yes or No?", false, "Yes! Great job.", "Sorry that's not correct.");
-askQuestion("Do I have a dog? Yes or No", true, "Great job!", "Sorry you missed it!" );
-askQuestion("Did I gradguate from the University of Tennessee? Yes or No.", true, "I sure did!", "No you didn't get it!");
-askQuestion("Do I live in Peru? Yes or No.", true, "Yes I do!", "Sorry, that's not correct!");
+askQuestion(
+    "Did I live in Ohio? Yes or No?",
+    false,
+    "Yes! Great job.",
+    "Sorry that's not correct."
+);
+askQuestion(
+    "Do I have a dog? Yes or No",
+    true,
+    "Great job!",
+    "Sorry you missed it!"
+);
+askQuestion(
+    "Did I graduate from the University of Tennessee? Yes or No.",
+    true,
+    "I sure did!",
+    "No you didn't get it!"
+);
+askQuestion(
+    "Do I live in Peru? Yes or No.",
+    true,
+    "Yes I do!",
+    "Sorry, that's not correct!"
+);
 askQuestion("Am I married? Yes or No.", true, "Yes I am!", "You missed again!");
 askDigit(10);
-askMultipleSolution(myFood,"Guess what species of fish I enjoy catching the most?", "Great try but these are my favorite, ");
+askMultipleSolution(
+    myFish,
+    "Guess what species of fish I enjoy catching the most?",
+    "Great try but these are my favorite, "
+);
 
 let thankYou = alert(
     `Thank you ${userName} for playing my little game. You got ${totalCorrect} correct questions.`
