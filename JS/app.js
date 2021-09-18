@@ -16,20 +16,18 @@ let userName = prompt("Please enter your name.");
 let welcomeMess = prompt(
     "Hello " + userName + " .  Please enter yes to take a quiz or no."
 );
-//first conditional block
+//first conditional block asking user to get ready
 if (welcomeMess.toLowerCase() == "yes" || welcomeMess.toLowerCase() == "y") {
-    //console.log("This is a test.");
     alert("Thank you! Get ready for your first question.");
 } else if (
     welcomeMess.toLowerCase() == "no" ||
     welcomeMess.toLowerCase() == "n"
 ) {
-    //console.log("Please play!")
     alert("You have no choice!");
 }
-
+//track total number of correct answers
 let totalCorrect = 0;
-
+//function to evaluate user responses.
 function askQuestion(questionMsg, confirmation, greatMsg, poorMsg) {
     let firstQuest = prompt(questionMsg);
 
@@ -56,19 +54,18 @@ function askQuestion(questionMsg, confirmation, greatMsg, poorMsg) {
     }
 }
 
+//function for random number guessing game for question 6
 function askDigit(randomRange) {
-    //Number guessing game
     let numberGuess = parseInt(
         prompt("Please guess a number between 1 and " + randomRange + " ?")
     );
     //generate and store a random number for loop.
     let someNumber = Math.floor(Math.random() * randomRange);
-    //console.log(someNumber);
+
     //turn counter
     let count = 1;
 
     while (count < 4) {
-        //console.log(someNumber);
         if (numberGuess === someNumber) {
             totalCorrect++;
             alert("You got it!");
@@ -85,19 +82,18 @@ function askDigit(randomRange) {
         }
     }
 }
+//let user know how many attempts they have
+let userAttempt = 0;
 
 function askMultipleSolution(dataArray, questionMsg, poorMsg) {
     let userAnswer = false;
     let userAttempt = 0;
-
     //use for loop to iterate over array each time the user provides a response
     while (userAnswer == false && userAttempt < 6) {
-        //console.log(userAnswer == false && userAttempt < 6);
         //prompt user provide a response.
         let guessFish = prompt(questionMsg);
         for (let i = 0; i < dataArray.length; i++) {
             if (guessFish.toLowerCase() == dataArray[i]) {
-                //console.log("not working");
                 totalCorrect++;
                 alert("Great guess!");
                 userAnswer = true;
@@ -136,7 +132,7 @@ askQuestion(
     "Sorry, that's not correct!"
 );
 askQuestion("Am I married? Yes or No.", true, "Yes I am!", "You missed again!");
-askDigit(10);
+askDigit(25);
 askMultipleSolution(
     myFish,
     "Guess what species of fish I enjoy catching the most?",

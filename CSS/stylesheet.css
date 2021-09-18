@@ -11,7 +11,7 @@ header {
     text-align: center;
     width: 400px;
     border-bottom: 2px solid black;
-    text-shadow: 3px 1px rgb(192, 219, 255);
+    text-shadow: 3px 1px hsl(214, 100%, 88%) rgb() hsl(210, 100%, 60%);
 }
 
 main {}
