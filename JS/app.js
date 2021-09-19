@@ -99,7 +99,7 @@ function askMultipleSolution(dataArray, questionMsg, wrongAnswer) {
                 userAnswer = true;
             }
         }
-        console.log(userAttempt);
+
         userAttempt--;
         alert(`You have ${userAttempt} attempts left.`);
     }
