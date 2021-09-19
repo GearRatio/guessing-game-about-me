@@ -14,7 +14,7 @@ let myFish = [
 let userName = prompt("Please enter your name.");
 //alert to take a quiz about me
 let welcomeMess = prompt(
-    "Hello " + userName + " .  Please enter yes to take a quiz or no."
+    "Hello " + userName + " .  Please enter 'Yes' or 'No' to take a quiz."
 );
 //first conditional block asking user to get ready
 if (welcomeMess.toLowerCase() == "yes" || welcomeMess.toLowerCase() == "y") {
@@ -83,13 +83,13 @@ function askDigit(randomRange) {
     }
 }
 //let user know how many attempts they have
-let userAttempt = 0;
+//let userAttempt = 0;
 
-function askMultipleSolution(dataArray, questionMsg, poorMsg) {
+function askMultipleSolution(dataArray, questionMsg, wrongAnswer) {
     let userAnswer = false;
-    let userAttempt = 0;
+    let userAttempt = 6;
     //use for loop to iterate over array each time the user provides a response
-    while (userAnswer == false && userAttempt < 6) {
+    while (userAnswer == false && userAttempt > 0) {
         //prompt user provide a response.
         let guessFish = prompt(questionMsg);
         for (let i = 0; i < dataArray.length; i++) {
@@ -99,11 +99,13 @@ function askMultipleSolution(dataArray, questionMsg, poorMsg) {
                 userAnswer = true;
             }
         }
-        userAttempt++;
+        console.log(userAttempt);
+        userAttempt--;
+        alert(`You have ${userAttempt} attempts left.`);
     }
 
     if (userAnswer == false) {
-        alert(poorMsg + dataArray + " .");
+        alert(wrongAnswer + dataArray + " .");
     }
 }
 
@@ -135,8 +137,9 @@ askQuestion("Am I married? Yes or No.", true, "Yes I am!", "You missed again!");
 askDigit(25);
 askMultipleSolution(
     myFish,
-    "Guess what species of fish I enjoy catching the most?",
-    "Great try but these are my favorite, "
+    `Guess what species of fish I enjoy catching the most?`,
+    `Great try but these are my favorite, ${myFish}. ` //,
+    //`You have ${userAttempt} attempts left.`
 );
 
 let thankYou = alert(

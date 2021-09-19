@@ -2,16 +2,20 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     background-color: #7eb6a9;
 }
 
 header {
-    margin: auto;
+    margin: 0 auto;
     text-align: center;
     width: 400px;
     border-bottom: 2px solid black;
-    text-shadow: 3px 1px hsl(214, 100%, 88%) rgb() hsl(210, 100%, 60%);
+    text-shadow: 3px 2px hsl(212, 7%, 39%);
+}
+
+h1 {
+    margin-bottom: .2em;
 }
 
 main {}
@@ -48,4 +52,8 @@ main {}
 .education {
     text-align: center;
     margin: 5px 0 5px;
+}
+
+*.icon-black {
+    cursor: pointer;
 }
